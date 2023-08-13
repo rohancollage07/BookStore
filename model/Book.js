@@ -7,7 +7,11 @@ const bookSchema = new Schema({
         type : String,
         required : true
     },
-    desciption: {
+    author: {
+        type : String,
+        required : true
+    },
+    description: {
         type : String,
         required : true
     },
@@ -17,6 +21,10 @@ const bookSchema = new Schema({
     },
     available: {
         type : Boolean,
+        required : true
+    },
+    image: {
+        type : String,
         required : true
     }
 
