@@ -12,9 +12,12 @@ const Header = () => {
        sx={{backgroundColor: " #49c5b6"}} 
        position="sticky">
         <Toolbar>
-          <Typography>
+          <NavLink to= '/'>
+<Typography>
             <AutoStoriesIcon  sx={{fontSize : "2.5rem"}}/>
           </Typography>
+          </NavLink>
+          
           <Tabs 
             sx={{ml:"auto"}}
             indicatorColor="primary"

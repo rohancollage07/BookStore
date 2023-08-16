@@ -1,0 +1,79 @@
+body{
+  background-color: #2779a7;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+li {
+  padding: 5px;
+  margin: 50px 85px;
+  width: 300px;
+  max-width: 400px;
+  max-height: 600px;
+  list-style-type: none;
+  justify-content: flex-start;
+}
+
+.card {
+  margin: auto;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 5px 5px 10px #ccc;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.card > img {
+  
+  width: 100%;
+  height: 50%;
+}
+.card article {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+
+  
+  
+}
+.card h3 { 
+  padding-bottom: 10px;
+  padding-left: 20px;
+  
+}
+.card h2 { 
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  
+}
+.card p {
+  padding: 3x;
+  padding-left: 20px;
+
+  /* font-size: 10px; */
+}
+
+.button-add{
+ margin-top: 50px;
+ padding: 10px;
+ background-color: #49c5b6;
+ width: 200px;
+ 
+margin-left: 250px;
+  
+
+}
+
+/* .UPDEL button{
+    padding-left: 20px;
+    margin-left: 80px;
+} */
