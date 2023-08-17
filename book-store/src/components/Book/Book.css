@@ -73,6 +73,11 @@ margin-left: 250px;
 
 }
 
+.searchBox{
+  margin: 50px;
+  text-align: center;
+}
+
 /* .UPDEL button{
     padding-left: 20px;
     margin-left: 80px;

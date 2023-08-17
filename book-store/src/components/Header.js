@@ -4,7 +4,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import { NavLink } from 'react-router-dom';
 const Header = () => {
 
-  const [value, setValue] = useState()
+  const [value, setValue] = useState(0)
   return ( 
     // #2779a7 backgroundColor
     <div>

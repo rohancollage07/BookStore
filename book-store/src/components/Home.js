@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Book from "./Book/Book";
+import './Book/Book.css'
 const URL = "http://localhost:5000/books";
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);
@@ -14,7 +15,12 @@ const Home = () => {
   // console.log(books.filter(book => book.name.toLowerCase().includes("p")));
 useEffect(() => {
     fetchHandler().then((data) => setBooks(data.books));
+    
   }, []);
+
+  // const search = (data) =>{
+  //   return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query)));
+  // };
   // console.log(books);
   return (
     <div>
@@ -28,17 +34,19 @@ useEffect(() => {
           <Typography variant="h3">View All Books</Typography>
         </Button>
       </Box>
-
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
+    <div className="searchBox">
+      <TextField style= {{text: 'center'}}  id="outlined-basic" label="Search Book" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
+    
+    </div>
       <div>
-      <h1>hi</h1>
+      
       <ul>
-        {books &&
-          books.filter(book => book.name.toLowerCase().includes(query)).map((book, i) => (
+       {books && 
+            books.filter(book => book.name.toLowerCase().includes(query) || book.author.toLowerCase().includes(query) || book.description.toLowerCase().includes(query) ).map((book, i) => (
             <li className = 'book' key={i}>
               <Book book={book} />
             </li>
-          ))}
+            ))}
       </ul>
     </div>
     
@@ -47,3 +55,8 @@ useEffect(() => {
 };
 
 export default Home;
+
+
+
+
+
