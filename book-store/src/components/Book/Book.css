@@ -1,5 +1,7 @@
+/*  */
 body{
-  background-color: #2779a7;
+  background-color:#d1d7ab;
+  
 }
 
 ul {
@@ -24,7 +26,7 @@ li {
   padding: 5px;
   height: 100%;
   width: 100%;
-  box-shadow: 5px 5px 10px #ccc;
+  box-shadow: 5px 5px 10px aliceblue;
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
@@ -65,8 +67,9 @@ li {
 .button-add{
  margin-top: 50px;
  padding: 10px;
- background-color: #49c5b6;
+ background-color: #222222;
  width: 200px;
+ color: #ccc;
  
 margin-left: 250px;
   

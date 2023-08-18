@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Book from "./Book/Book";
 import './Book/Book.css'
+import Sidebar from "./Sidebar";
 const URL = "http://localhost:5000/books";
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);
 };
 const Home = () => {
-  const keys = [ "name", 'author', 'description','price'] ;
+  
   const [books, setBooks] = useState();
   const [query, setQuery] = useState("")
-  // console.log(books.filter(book => book.name.toLowerCase().includes("p")));
 useEffect(() => {
     fetchHandler().then((data) => setBooks(data.books));
     
@@ -23,8 +23,9 @@ useEffect(() => {
   // };
   // console.log(books);
   return (
+    <> 
     <div>
-      <Box display="flex" flexDirection="column" alignItems="center">
+      {/* <Box display="flex" flexDirection="column" alignItems="center">
         <Button
           LinkComponent={Link}
           to="/books"
@@ -33,24 +34,29 @@ useEffect(() => {
         >
           <Typography variant="h3">View All Books</Typography>
         </Button>
-      </Box>
-    <div className="searchBox">
-      <TextField style= {{text: 'center'}}  id="outlined-basic" label="Search Book" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
-    
-    </div>
+      </Box> */}
+      <div className="searchBox">
+         <Typography  margin={10} color={"white"} variant="h3">Search Any Book </Typography>
+        <TextField  style={{ width: '500px', height: "500px" }} id="outlined-basic" label="Search Book" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
+
+      </div>
       <div>
-      
-      <ul>
-       {books && 
-            books.filter(book => book.name.toLowerCase().includes(query) || book.author.toLowerCase().includes(query) || book.description.toLowerCase().includes(query) ).map((book, i) => (
-            <li className = 'book' key={i}>
-              <Book book={book} />
-            </li>
-            ))}
-      </ul>
-    </div>
-    
-    </div>
+
+        <ul>
+          {query && (
+            books &&
+            books.filter(book => book.name.toLowerCase().includes(query) || book.author.toLowerCase().includes(query) || book
+              .description.toLowerCase().includes(query))
+              .map((book, i) => (
+                <li className='book' key={i}>
+                  <Book book={book} />
+                </li>
+              ))
+          )}
+        </ul>
+      </div>
+
+    </div></>
   );
 };
 
