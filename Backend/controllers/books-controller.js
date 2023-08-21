@@ -37,6 +37,26 @@ const getById = async (req,res, next) =>{
     return res.status(200).json({book})
 }
 
+
+const getByImage = async (req, res, next) => {
+    const imageUrl = req.params.imageUrl; // Assuming you pass the image URL as a parameter
+
+    let book;
+    try {
+        // Find a book with the given image URL
+        book = await Book.findOne({ image: imageUrl });
+    } catch (error) {
+        console.log(error);
+    }
+
+    if (!book) {
+        return res.status(404).json({ message: "No Book by image URL found" });
+    }
+
+    return res.status(200).json({ book });
+}
+
+
 const addBook = async(req, res, next) => {
     const { name, author, description, price , available, image } = req.body;
     let book;
@@ -61,13 +81,36 @@ const addBook = async(req, res, next) => {
     return res.status(201).json({book})
 
 }
+const addReview = async(req, res, next) => {
+    const { review } = req.body;
+    let book;
 
+    try {
+        book = new Book(
+            {
+                review
+            }
+        );
+        await book.save()
+    } catch (error) {
+        console.log(error)
+    }
+
+    if(!book){
+        return res.status(500).json({message : "Unable to add"})
+
+    }
+    return res.status(201).json({book})
+
+}
 const updateBook = async(req,res, next) =>{
     const id = req.params.id;
     const { name, author, description, price , available, image } = req.body;
     let book;
     try {
-        book = await Book.findByIdAndUpdate(id, {name, author, description, price , available , image})
+        book = await Book.findByIdAndUpdate(id, 
+            {name, author, description, price , 
+                available , image})
         book = await book.save()
     } catch (error) {
         console.log(error)
@@ -103,6 +146,10 @@ exports.addBook = addBook;
 exports.getById = getById;
 exports.updateBook = updateBook;
 exports.deleteBook = deleteBook;
+exports.getByImage = getByImage;
+exports.addReview = addReview;
+
+
 
 
 

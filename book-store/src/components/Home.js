@@ -37,7 +37,7 @@ useEffect(() => {
       </Box> */}
       <div className="searchBox">
          <Typography  margin={10} color={"white"} variant="h3">Search Any Book </Typography>
-        <TextField  style={{ width: '500px', height: "500px" }} id="outlined-basic" label="Search Book" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
+        <TextField  style={{ width: '500px' }} id="outlined-basic" label="Search Book" variant="outlined" onChange={(e) => setQuery(e.target.value)} />
 
       </div>
       <div>
