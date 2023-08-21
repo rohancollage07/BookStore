@@ -11,7 +11,7 @@ const SingleBook = () => {
     const fetchHandler = async () => {
       try {
         const response = await axios.get
-        (`http://localhost:5000/books/${id}`);
+        (`${process.env.REACT_APP_URL}/${id}`);
         const data = response.data; 
         setBook(data.book);
         // Assuming the response contains the whole book object

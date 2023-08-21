@@ -10,7 +10,7 @@ const BookDetail = () => {
   const history = useNavigate();
   useEffect(() => {
     const fetchHandler = async() =>{
-        await axios.get(`http://localhost:5000/books/${id}`)
+        await axios.get(`${process.env.REACT_APP_URL}/${id}`)
         .then((res) => (res.data)).then(data => setInputs(data.book))
     
     };
@@ -19,7 +19,7 @@ const BookDetail = () => {
   }, [id]);
 
   const sendRequest = async() => {
-    await axios.put(`http://localhost:5000/books/${id}`, {
+    await axios.put(`${process.env.REACT_APP_URL}/${id}`, {
       name : String(inputs.name),
       author : String(inputs.author),
       description : String(inputs.description),

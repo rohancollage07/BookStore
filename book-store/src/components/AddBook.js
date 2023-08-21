@@ -25,7 +25,7 @@ const AddBook = () => {
   }
 
   const sendRequest = async() => {
-    axios.post("http://localhost:5000/books", {
+    axios.post(process.env.REACT_APP_URL, {
       name : String(inputs.name),
       author : String(inputs.author),
       description : String(inputs.description),
