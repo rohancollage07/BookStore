@@ -23,7 +23,7 @@ const Book = (props) => {
         Rs {price}
         </h2>
         <div className='UPDEl' style={{padding: "20px"}}>
-        <Button style={{color:'aliceblue'}}  LinkComponent={Link} to = {`/books/${_id}`}  sx = {{mt:"auto"}}>Update</Button>
+        <Button style={{color:'aliceblue'}}  LinkComponent={Link} to = {`/books/${_id}/update`}  sx = {{mt:"auto"}}>Update</Button>
         <Button style={{color:'aliceblue'}}   onClick={deleteHandler} sx = {{mt:"auto"}}>Delete</Button>
 
         </div>
