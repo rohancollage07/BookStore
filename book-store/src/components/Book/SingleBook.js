@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 
 const SingleBook = () => {
   const [book, setBook] = useState(null); // Initialize with null
-
+  // const [result, setResult] = useState(0);
   const id = useParams().id;
 
   useEffect(() => {
@@ -33,7 +35,12 @@ const SingleBook = () => {
       
       <h3>{book.name}</h3>
       <img src={book.image} alt={book.name}/>
-      <h1>hero</h1>
+      <h3>{book.name}</h3>
+      <article>By {book.author}</article>
+      <p>{book.description}</p>
+      <h2> Rs {book.price}</h2>
+      <h1>Available quantity : {book.quantity}</h1>
+      <RemoveCircleIcon/>  <input></input> <AddCircleSharpIcon/>
     </div>
   );
 };

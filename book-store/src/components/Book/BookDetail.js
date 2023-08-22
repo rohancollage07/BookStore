@@ -25,6 +25,7 @@ const BookDetail = () => {
       description : String(inputs.description),
       price : Number(inputs.price)  
       ,image : String(inputs.image),
+      quantity : Number(inputs.quantity),
       available : Boolean(checked)
     }).then(res => res.data)
     
@@ -69,7 +70,11 @@ const BookDetail = () => {
 
 <FormLabel>Image</FormLabel>
     <TextField value={inputs.image} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='image'/>
+    
     <FormControlLabel  control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />} label="Available" />
+    
+<FormLabel>Quantity</FormLabel>
+    <TextField value={inputs.quantity} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='quantity'/>
 
     <FormLabel>Price</FormLabel>
     <TextField value={inputs.price} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='price'/>

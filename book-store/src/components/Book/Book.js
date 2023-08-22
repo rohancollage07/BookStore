@@ -6,7 +6,7 @@ import axios from 'axios';
 const Book = (props) => {
   const history = useNavigate();
     const {_id, name, author, description, price, 
-      image, available} = props.book;
+      image, available, quantity} = props.book;
       
   const deleteHandler = async() => {
    await axios.delete(`${process.env.REACT_APP_URL}/${_id}`)
@@ -14,10 +14,12 @@ const Book = (props) => {
   }
   return (
     <div className='card'>
-        <Button LinkComponent={Link} to = {`/books/${_id}`}> <img  src={image} alt={name}/></Button>
+        <img  src={image} alt={name} onClick={() => window.location.href = `/books/${_id}`}/> 
+        {/* to go to certain location we used window.location.href */}
         <article>By {author}</article>
         <h3>{name}</h3>
         <p>{description}</p>
+        <h1>Available quantities : {quantity}</h1>
         <h1>{available}</h1>
         <h2>
         Rs {price}
