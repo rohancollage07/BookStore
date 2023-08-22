@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { IconButton, Drawer, List, ListItem, ListItemText, colors } from '@mui/material';
+import { IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'; // Create this CSS file for styling
-import { red } from '@mui/material/colors';
+
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,14 +23,18 @@ const Sidebar = () => {
             onKeyDown={toggleDrawer(false)}
         >
             <List>
-                <ListItem button component={Link} to="/add">
+                <ListItem  component={Link} to="/add">
                     <ListItemText primary="Add Product" />
                 </ListItem>
-                <ListItem button component={Link} to="/books">
+                <ListItem component={Link} to="/books">
                     <ListItemText primary="Books" />
                 </ListItem>
-                <ListItem button component={Link} to="/about">
+                <ListItem component={Link} to="/about">
                     <ListItemText primary="About Us" />
+                </ListItem>
+
+                 <ListItem component={Link} to="/cart">
+                    <ListItemText primary="Cart" />
                 </ListItem>
             </List>
         </div>
