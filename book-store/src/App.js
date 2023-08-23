@@ -6,7 +6,7 @@ import AddBook from './components/AddBook'
 import About from './components/About'
 import Books from './components/Book/Books'
 import React from "react";
-import BookDetail from "./components/Book/BookDetail";
+import BookDetail from "./components/Book/UpdateBook";
 import SingleBook from "./components/Book/SingleBook";
 import Cart from "./components/Cart";
 

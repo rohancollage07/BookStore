@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useCart } from './context';
+
 
 const Cart = () => {
   const { cartItems, setCartItems } = useCart();
@@ -14,16 +15,18 @@ const Cart = () => {
       total += item.price * item.quantity; // Calculate total based on price and quantity
     });
     setTotalAmount(total);
+    console.log(cartItems)
   }, [cartItems]);
 
   const increaseQuantity = (itemId) => {
     // Find the item in cartItems
     const updatedCart = cartItems.map(item =>
-      item._id === itemId && item.quantity < item.quantity_available
+      item._id === itemId 
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
     setCartItems(updatedCart);
+
   };
 
   const decreaseQuantity = (itemId) => {
@@ -34,17 +37,22 @@ const Cart = () => {
         : item
     );
     setCartItems(updatedCart);
+    
   };
+
+
+ 
+
 
   const shopButtonHandler = async () => {
     try {
-      // Update quantities in the database for each item in cartItems
-      await Promise.all(cartItems.map(async item => {
-        const newQuantity = item.available - item.quantity;
-        await axios.patch(`${process.env.REACT_APP_URL}/${item._id}`, {
-          quantity: newQuantity
-        });
-      }));
+      // // Update quantities in the database for each item in cartItems
+      // await Promise.all(cartItems.map(async item => {
+      //   const newQuantity = quantity - item.quantity;
+      //   await axios.patch(`${process.env.REACT_APP_URL}/${item._id}`, {
+      //     quantity: newQuantity
+      //   });
+      // }));
 
       // Clear the cart or perform any other necessary actions
       setCartItems([]);
@@ -60,13 +68,13 @@ const Cart = () => {
         <div key={item._id}>
           <p>{item.name}</p>
           <p>Price: Rs {item.price}</p>
-          <p>Available Quantity: {item.available}</p>
+          <p>Available Quantity: {item.quantity}</p>
           <p>Quantity:</p>
           <input
             type="number"
             value={item.quantity}
             min="1"
-            max={item.available}
+            max={item.quantity_available}
             onChange={(e) => {
               const updatedCart = cartItems.map(cartItem =>
                 cartItem._id === item._id

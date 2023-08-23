@@ -79,8 +79,7 @@ const BookDetail = () => {
     <FormLabel>Price</FormLabel>
     <TextField value={inputs.price} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='price'/>
 
-    {/* <FormLabel>Name</FormLabel>
-    <TextField  margin='normal' fullWidth variant='outlined' name='name'/> */}
+    
   <Button variant= "contained" type='submit'>Update Book</Button>
   </Box>
   </form>)}

@@ -12,7 +12,9 @@ const AddBook = () => {
     description : "",
     price: "",
     author : "",
-    image: "" 
+    image: "",
+    quantity: "",
+    quantity_available: ""
   })
 
   const [checked, setChecked] = useState()
@@ -29,7 +31,10 @@ const AddBook = () => {
       name : String(inputs.name),
       author : String(inputs.author),
       description : String(inputs.description),
-      price : Number(inputs.price)  
+      price : Number(inputs.price),
+      quantity : Number(inputs.quantity),
+      quantity_available : Number(inputs.quantity_available)
+
       ,image : String(inputs.image),
       available : Boolean(checked)
     }).then(res => res.data)
@@ -66,6 +71,12 @@ const AddBook = () => {
 <FormLabel>Image</FormLabel>
     <TextField value={inputs.image} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='image'/>
     <FormControlLabel  control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />} label="Available" />
+
+<FormLabel>Quantity</FormLabel>
+    <TextField value={inputs.quantity} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='quantity'/>
+
+<FormLabel>quantity_available</FormLabel>
+    <TextField value={inputs.quantity_available} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='quantity_available'/>
 
     <FormLabel>Price</FormLabel>
     <TextField value={inputs.price} onChange={handleChange} type='number' margin='normal' fullWidth variant='outlined' name='price'/>

@@ -40,7 +40,7 @@ const getById = async (req,res, next) =>{
 
 
 const addBook = async(req, res, next) => {
-    const { name, author, description, price , available, image, quantity } = req.body;
+    const { name, author, description, price , available, image, quantity, quantity_available} = req.body;
     let book;
 
     try {
@@ -48,7 +48,7 @@ const addBook = async(req, res, next) => {
             {
                 name,
                 author,
-                description, price , available, image,quantity
+                description, price , available, image,quantity,quantity_available
             }
         );
         await book.save()
@@ -66,12 +66,12 @@ const addBook = async(req, res, next) => {
 
 const updateBook = async(req,res, next) =>{
     const id = req.params.id;
-    const { name, author, description, price , available, image,quantity_available, quantity} = req.body;
+    const { name, author, description, price , available, image, quantity, quantity_available} = req.body;
     let book;
     try {
         book = await Book.findByIdAndUpdate(id, 
             {name, author, description, price , 
-                available , image, quantity, quantity_available})
+                available , image, quantity, quantity_available,})
         book = await book.save()
     } catch (error) {
         console.log(error)

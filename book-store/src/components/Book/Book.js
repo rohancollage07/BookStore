@@ -1,16 +1,18 @@
 import { Button } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import './Book.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { useCart } from '../context'
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+
 // Import the useCart hook
 
 const Book = (props) => {
   const { addToCart } = useCart() // Access the addToCart function from context
-
+const [open, setOpen] = useState(false);
   const history = useNavigate()
-  //  const history2 = unstable_HistoryRouter();
+  
   const addToCartHandler = () => {
     // Logic to prepare the book item to be added to the cart
     const bookItem = {
@@ -22,12 +24,18 @@ const Book = (props) => {
       image,
       available,
       quantity,
+      quantity_available
       // ... other relevant properties
     }
 
-    addToCart(bookItem) // Add the book item to the cart
+    addToCart(bookItem)  // Add the book item to the cart
     console.log(bookItem)
+  setOpen(true);
   }
+
+  const handleClose = () => {
+    setOpen(false); // Close the confirmation dialog
+  };
 
   const {
     _id,
@@ -38,6 +46,7 @@ const Book = (props) => {
     image,
     available,
     quantity,
+    quantity_available
   } = props.book
 
   const deleteHandler = async () => {
@@ -59,6 +68,8 @@ const Book = (props) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <h1>Available quantities : {quantity}</h1>
+     
+
       <h1>{available}</h1>
       <h2>Rs {price}</h2>
       <div className="UPDEl" style={{ padding: '20px' }}>
@@ -84,6 +95,19 @@ const Book = (props) => {
         >
           Add to Cart
         </Button>
+
+         <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Book Added to Cart</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            The book has been added to your cart. Do you want to go to your cart?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>No</Button>
+          <Button LinkComponent={NavLink} to="/cart">Yes</Button>
+        </DialogActions>
+      </Dialog>
       </div>
     </div>
   )

@@ -37,6 +37,8 @@ const bookSchema = new Schema({
         default: this.quantity} // Set its value to the quantity field
 })
 
+
+
 module.exports = mongoose.model("book", bookSchema);
 
 
