@@ -22,7 +22,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <App.Provider value={{ cartItems, addToCart, 
-    setCartItems, addtoSingleBook, book }}>
+    setCartItems, addtoSingleBook, book ,setBook}}>
       {children}
     </App.Provider>
   );

@@ -7,6 +7,7 @@ const Cart = () => {
   const { cartItems, setCartItems } = useGlobalContext();
 
   const [totalAmount, setTotalAmount] = useState(0);
+  const [value, setValue] = useState(1); // Initialize value with 1
   
   useEffect(() => {
     // Calculate total amount whenever cartItems change
@@ -23,7 +24,7 @@ const Cart = () => {
     const cartItemValue = cartItems.find(item => item._id === itemId)?.quantity || 0;
     console.log(cartItemValue)
     const updatedCart = cartItems.map(item =>
-      item._id === itemId
+      item._id === itemId && item.quantity < cartItemValue
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
