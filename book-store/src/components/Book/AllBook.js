@@ -1,16 +1,15 @@
 import { Button } from '@mui/material'
-import React, { useState } from 'react'
+
 import './Book.css'
-import { Link, useNavigate, NavLink } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import { useCart } from '../context'
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { useGlobalContext } from '../context'
 
 // Import the useCart hook
 
-const Book = (props) => {
-  const { addToCart } = useCart() // Access the addToCart function from context
-const [open, setOpen] = useState(false);
+const AllBook = (props) => {
+  const { addToCart, addtoSingleBook } = useGlobalContext() // Access the addToCart function from context
+
   const history = useNavigate()
   
   const addToCartHandler = () => {
@@ -30,12 +29,32 @@ const [open, setOpen] = useState(false);
 
     addToCart(bookItem)  // Add the book item to the cart
     console.log(bookItem)
-  setOpen(true);
+    // setOpen(true);
+    const confirm = window.confirm("added to cart! Do you want to go to Cart ?")
+    //window.confirm gives a boolean value if clicked yes or no( true false)
+    if (confirm){
+        history("/cart") 
+        // use above code to go to cart page using history UseNavigate
+    }
   }
 
-  const handleClose = () => {
-    setOpen(false); // Close the confirmation dialog
-  };
+  const AddtoSB = () =>{
+    const bookItem = {
+      _id,
+      name,
+      author,
+      description,
+      price,
+      image,
+      available,
+      quantity,
+      quantity_available
+      // ... other relevant properties
+    }
+    addtoSingleBook(bookItem)
+    console.log(bookItem)
+  }
+  
 
   const {
     _id,
@@ -58,11 +77,14 @@ const [open, setOpen] = useState(false);
   }
   return (
     <div className="card">
+     <Link to={`/books/${_id}/singlebook`}>
       <img
         src={image}
         alt={name}
-        onClick={() => (window.location.href = `/books/${_id}`)}
+        onClick={AddtoSB}
+        
       />
+     </Link>
       {/* to go to certain location we used window.location.href */}
       <article>By {author}</article>
       <h3>{name}</h3>
@@ -96,21 +118,10 @@ const [open, setOpen] = useState(false);
           Add to Cart
         </Button>
 
-         <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Book Added to Cart</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            The book has been added to your cart. Do you want to go to your cart?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>No</Button>
-          <Button LinkComponent={NavLink} to="/cart">Yes</Button>
-        </DialogActions>
-      </Dialog>
+         
       </div>
     </div>
   )
 }
 
-export default Book
+export default AllBook

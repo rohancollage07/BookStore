@@ -1,46 +1,37 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
+import { useGlobalContext } from '../context';
+
+
+
 
 const SingleBook = () => {
-  const [book, setBook] = useState(null); // Initialize with null
-  // const [result, setResult] = useState(0);
-  const id = useParams().id;
+  const {book} = useGlobalContext(); // call the useGlobalContext
+ 
 
-  useEffect(() => {
-    const fetchHandler = async () => {
-      try {
-        const response = await axios.get
-        (`${process.env.REACT_APP_URL}/${id}`);
-        const data = response.data; 
-        setBook(data.book);
-        // Assuming the response contains the whole book object
-      } catch (error) {
-        console.error('Error fetching book:', error);
-      }
-    };
 
-    fetchHandler();
-    
-  }, [id]);
-
-  if (book === null) {
-    return <div>Loading...</div>;
-  }
-
+  
+console.log(book)
   return (
     <div>
       
-      <h3>{book.name}</h3>
-      <img src={book.image} alt={book.name}/>
-      <h3>{book.name}</h3>
-      <article>By {book.author}</article>
-      <p>{book.description}</p>
-      <h2> Rs {book.price}</h2>
-      <h1>Available quantity : {book.quantity}</h1>
-      <RemoveCircleIcon/>  <input></input> <AddCircleSharpIcon/>
+     <h1>HEllo</h1>
+      {book && book.map(singleBook => (
+        <div key={singleBook._id}>
+             <h3>{singleBook.name}</h3>
+      <img src={singleBook.image} alt={singleBook.name}/>
+      <h3>{singleBook.name}</h3>
+      <article>By {singleBook.author}</article>
+      <p>{singleBook.description}</p>
+      <h2> Rs {singleBook.price}</h2>
+      <h1>Available quantity : {singleBook.quantity}</h1>
+      
+      <RemoveCircleIcon/>  <input min="1" value={singleBook.quantity}></input> <AddCircleSharpIcon/>
+
+        </div>
+      ))}
+
     </div>
   );
 };

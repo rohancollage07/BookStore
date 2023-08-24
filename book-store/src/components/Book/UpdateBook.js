@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import { FormLabel, TextField , Box, FormControlLabel, Checkbox, Button, Typography} from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const BookDetail = () => {
+const UpdateBook = () => {
   const [inputs, setInputs] = useState({})
   const [checked, setChecked] = useState(false)
   const id = useParams().id;
@@ -87,4 +87,4 @@ const BookDetail = () => {
   )
 }
 
-export default BookDetail
+export default UpdateBook

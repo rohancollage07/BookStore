@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-import { useCart } from './context';
+import { useGlobalContext } from './context';
 
 
 const Cart = () => {
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItems } = useGlobalContext();
 
   const [totalAmount, setTotalAmount] = useState(0);
 
