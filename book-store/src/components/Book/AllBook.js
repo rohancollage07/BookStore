@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Book.css'
 import { Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
@@ -34,7 +35,7 @@ const AllBook = (props) => {
     //window.confirm gives a boolean value if clicked yes or no( true false)
     if (confirm){
         history("/cart") 
-        // use above code to go to cart page using history UseNavigate
+       
     }
   }
 
@@ -76,51 +77,37 @@ const AllBook = (props) => {
       .then(() => history('/books'))
   }
   return (
-    <div className="card">
-     <Link to={`/books/${_id}/singlebook`}>
-      <img
-        src={image}
-        alt={name}
-        onClick={AddtoSB}
-        
-      />
-     </Link>
-      {/* to go to certain location we used window.location.href */}
-      <article>By {author}</article>
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <h1>Available quantities : {quantity}</h1>
-     
-
-      <h1>{available}</h1>
-      <h2>Rs {price}</h2>
-      <div className="UPDEl" style={{ padding: '20px' }}>
-        <Button
-          style={{ color: 'aliceblue' }}
-          LinkComponent={Link}
-          to={`/books/${_id}/update`}
-          sx={{ mt: 'auto' }}
-        >
-          Update
-        </Button>
-        <Button
-          style={{ color: 'aliceblue' }}
-          onClick={deleteHandler}
-          sx={{ mt: 'auto' }}
-        >
-          Delete
-        </Button>
-        <Button
-          style={{ color: 'aliceblue' }}
-          onClick={addToCartHandler}
-          sx={{ mt: 'auto' }}
-        >
-          Add to Cart
-        </Button>
-
-         
-      </div>
+    <div className="book-card">
+  <Link to={`/books/${_id}/singlebook`} className="book-image">
+    <img src={image} alt={name} />
+    <div className="image-overlay">
+      <button onClick={AddtoSB}>View Details</button>
     </div>
+  </Link>
+  <div className="book-details">
+    <article className="author">By {author}</article>
+    <h3 className="book-title">{name}</h3>
+    <p className="book-description">{description}</p>
+    <div className="availability">Available quantities: {quantity}</div>
+    <h2 className="price">Rs {price}</h2>
+    <div className="actions">
+      <Button
+        className="update-button"
+        LinkComponent={Link}
+        to={`/books/${_id}/update`}
+      >
+        Update
+      </Button>
+      <Button className="delete-button" onClick={deleteHandler}>
+        Delete
+      </Button>
+      <Button className="add-to-cart-button" onClick={addToCartHandler}>
+        Add to Cart
+      </Button>
+    </div>
+  </div>
+</div>
+
   )
 }
 

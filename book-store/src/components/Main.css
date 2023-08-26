@@ -1,0 +1,117 @@
+/* Main container */
+.cart-container {
+ 
+  max-width: 800px;
+  margin:  auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart header */
+.cart-header {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Cart item container */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.cart-item img {
+  max-width: 100px;
+  height: auto;
+}
+
+/* Cart item details */
+.cart-item-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.cart-item-details h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.cart-item-details p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #777;
+}
+
+/* Quantity input */
+.quantity-input {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.action-button {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #ff3e3e;
+}
+
+/* Total amount */
+.total-amount {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: right;
+  color: #333;
+}
+
+/* Shop button */
+.shop-button {
+  display: block;
+  margin: 20px auto;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shop-button:hover {
+  background-color: #ff3e3e;
+}
+
+
+.remove-button {
+  color: #e74c3c; /* Red color */
+}
+
+.remove-button:hover {
+  color: #c0392b; /* Darker red color on hover */
+}

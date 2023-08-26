@@ -33,7 +33,7 @@ const Home = () => {
         </Button>
       </Box> */}
         <div className="searchBox">
-          <Typography margin={10} color={'white'} variant="h3">
+          <Typography margin={10} color={'black'} variant="h3">
             Search Any Book{' '}
           </Typography>
           <TextField
@@ -52,8 +52,7 @@ const Home = () => {
                 .filter(
                   (book) =>
                     book.name.toLowerCase().includes(query) ||
-                    book.author.toLowerCase().includes(query) ||
-                    book.description.toLowerCase().includes(query),
+                    book.author.toLowerCase().includes(query),
                 )
                 .map((book, i) => (
                   <li className="book" key={i}>
