@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-import './Sidebar.css'; // Create this CSS file for styling
+import './Main.css'; // Create this CSS file for styling
 
 
 const Sidebar = () => {

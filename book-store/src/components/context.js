@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const addtoSingleBook = (item) => {
-    setBook([...book, item])
+    setBook([item])
   }
 
   

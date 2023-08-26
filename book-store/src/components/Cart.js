@@ -91,7 +91,7 @@ if (itemToDelete) {
           <div className="cart-item-details">
             <h3>{item.name}</h3>
             <p>Price: Rs {item.price}</p>
-            <p>Available Quantity: {item.quantity_available}</p>
+            <p>Available Quantity: {item.quantity}</p>
            <button className="remove-button" onClick={() => removeItem(item._id)}>Remove</button>
           </div>
           <div className="action-buttons">

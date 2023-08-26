@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Tabs, Tab } from '@mui/material';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { NavLink } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import './Sidebar.css';
+import './Main.css';
 
 const Header = () => {
   const [value, setValue] = useState(0);

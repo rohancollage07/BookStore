@@ -6,6 +6,7 @@ import { Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { useGlobalContext } from '../context'
 
+
 // Import the useCart hook
 
 const AllBook = (props) => {
@@ -30,16 +31,10 @@ const AllBook = (props) => {
 
     addToCart(bookItem)  // Add the book item to the cart
     console.log(bookItem)
-    // // setOpen(true);
-    // const confirm = window.confirm("added to cart! Do you want to go to Cart ?")
-    // //window.confirm gives a boolean value if clicked yes or no( true false)
-    // if (confirm){
-    //     history("/cart") 
-       
-    // }
+    
 
-    toast.success('Added to cart!', {
-      position: 'top-right',
+    toast.success('Added to Cart ! Click to go Cart', {
+      position: 'top-center',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -80,13 +75,25 @@ const AllBook = (props) => {
     quantity_available
   } = props.book
 
+  
   const deleteHandler = async () => {
     await axios
       .delete(`${process.env.REACT_APP_URL}/${_id}`)
       .then((res) => res.data)
       .then(() => history('/'))
       .then(() => history('/books'))
+
+       toast.success('Book deleted successfully! Refresh.', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+    });
   }
+
+
+
   return (
     <div className="book-card">
   <Link to={`/books/${_id}/singlebook`} className="book-image">
@@ -106,6 +113,7 @@ const AllBook = (props) => {
         className="update-button"
         LinkComponent={Link}
         to={`/books/${_id}/update`}
+        
       >
         Update
       </Button>
