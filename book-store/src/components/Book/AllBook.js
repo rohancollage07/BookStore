@@ -30,13 +30,24 @@ const AllBook = (props) => {
 
     addToCart(bookItem)  // Add the book item to the cart
     console.log(bookItem)
-    // setOpen(true);
-    const confirm = window.confirm("added to cart! Do you want to go to Cart ?")
-    //window.confirm gives a boolean value if clicked yes or no( true false)
-    if (confirm){
-        history("/cart") 
+    // // setOpen(true);
+    // const confirm = window.confirm("added to cart! Do you want to go to Cart ?")
+    // //window.confirm gives a boolean value if clicked yes or no( true false)
+    // if (confirm){
+    //     history("/cart") 
        
-    }
+    // }
+
+    toast.success('Added to cart!', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      onClick: () => {
+        history('/cart'); 
+      },
+    });
   }
 
   const AddtoSB = () =>{
