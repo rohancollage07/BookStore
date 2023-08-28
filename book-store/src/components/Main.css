@@ -275,12 +275,10 @@
 
 .Tabs_Header {
   /* background-color: #3498db; */
-  margin: 40px;
+  margin-right:100px;
   
-}
-
-.Tab_Individual{
-  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 30px;
 }
 
 .Tabs_Header .Tab_Individual {
@@ -288,7 +286,7 @@
   font-weight: 700;
   background-color: white;
   margin: auto;
-  padding: 10px 30px;
+  padding: 10px 25px;
   width: fit-content;
   border-radius: 20px;
 }
@@ -306,3 +304,101 @@
 }
 
 /* Header ends here */
+
+/* Home2 Starts here */
+.search-container{
+  text-align: center;
+  /* margin: 50px; */
+  /* margin-right: 150px; */
+  
+}
+
+.searchBox{
+  margin-top: 50px;
+ padding: 10px;
+ padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 200px;
+  transition: border-color 0.3s ease;
+  
+}
+.searchBox:focus {
+  border-color: #C2A792; /* Change to your preferred focus color */
+  outline: none;
+}
+
+.header-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 36px; /* Adjust as needed */
+  color: #e5573c; /* Text color */
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 60px ;
+}
+
+/* Styling for the animated section */
+
+.animated-section {
+margin-bottom: 50px;
+  
+}
+
+.spine-container{
+  margin: 20px 20px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+}
+
+.animated-image_special{
+  width:450px;
+  
+}
+.spine-container img{
+  /* width: 50px; */
+  height: 530px;
+  /* margin-bottom: 50px; */
+  /* margin: 0px 10px; */
+}
+
+.spine-container img:hover{
+  /* filter: grayscale(100%);  */
+  /* opacity: 0.7; */
+  transform: scale(1.1);
+  transition: transform 0.3s ease-out; /* Add a smooth transition */
+}
+
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animated-image_special{
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Styling for the animated image */
+.animated-image {
+  animation: fadeInUp 1s ease-in-out; /* Apply the animation */
+  max-width: 100%; /* Ensure the image fits within the container */
+}
+
+/* Import Montserrat font for the header */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Styling for the header text */
+
+
+/* Home2 Ends here */

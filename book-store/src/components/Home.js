@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 
 import axios from 'axios'
 import Book from './Book/AllBook'
-import './Book/Book.css'
+// import './Book/Book.css'
+import './Main.css'
+import Home2 from './Home2'
 
 const fetchHandler = async () => {
   return await axios.get(process.env.REACT_APP_URL).then((res) => res.data)
@@ -18,8 +20,10 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        <div className='search-container'>
+      {/* style={{ backgroundColor: query ? '#F8F3ED' : '#252525' }} */}
+      <div >
+        <div className='search-container' >
+
           <input
           placeholder='search Book'
            type='text'
@@ -27,9 +31,9 @@ const Home = () => {
           onChange={(e) => setQuery(e.target.value)}
            />
         </div>
-        <div>
+       {query ? ( <div>
           <ul>
-            {query &&
+            {
               books &&
               books
                 .filter(
@@ -42,8 +46,9 @@ const Home = () => {
                     <Book book={book} />
                   </li>
                 ))}
+                
           </ul>
-        </div>
+        </div>) : (<Home2/>)}
       </div>
     </>
   )

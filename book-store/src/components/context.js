@@ -9,10 +9,12 @@ export const AppProvider = ({ children }) => {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item])
+    
   }
 
   const addtoSingleBook = (item) => {
     setBook([item])
+    localStorage.setItem('selectedBook', JSON.stringify(item));
   }
 
   return (

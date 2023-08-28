@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp'
 import { useGlobalContext } from '../context'
@@ -7,9 +7,18 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
 const SingleBook = () => {
-  const { book, addToCart } = useGlobalContext() // call the useGlobalContext
+  const { book, addToCart ,addtoSingleBook } = useGlobalContext() // call the useGlobalContext
   const [value, setValue] = useState(1) // Initialize value with 1
   const history = useNavigate()
+
+  useEffect(() => {
+    const savedBook = localStorage.getItem('selectedBook');
+    if (savedBook) {
+      const parsedBook = JSON.parse(savedBook);
+      addtoSingleBook(parsedBook); // Update context with saved book details
+    }
+  }, []);
+
   
   const handleDecrease = () => {
     if (value > 1) {

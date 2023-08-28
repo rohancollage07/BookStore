@@ -28,12 +28,12 @@ const Header = () => {
   };
 
   return (
-    <div className='jh'>
+    <div >
       {!isSmallScreen ? (
         <Tabs
-      
+          
           className='Tabs_Header'
-          centered
+          //centered
           // value={activeTab}
           onChange={handleTabChange}
         >
@@ -52,7 +52,7 @@ const Header = () => {
           />
           <NavLink to="/" onClick={setActiveTab} >
             <Typography>
-              <AutoStoriesIcon sx={{ fontSize: '3rem', color: '#C2A792' }} />
+              <AutoStoriesIcon sx={{ fontSize: '3.4rem', color: '#C2A792', ml: '35px' }} />
             </Typography>
           </NavLink>
           <Tab

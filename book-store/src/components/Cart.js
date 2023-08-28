@@ -18,6 +18,7 @@ const Cart = () => {
     setTotalAmount(total)
     console.log(cartItems)
   }, [cartItems])
+  
 
   const increaseQuantity = (itemId) => {
     // Find the item in cartItems
