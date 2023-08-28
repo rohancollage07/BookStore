@@ -1,4 +1,7 @@
 
+body{
+  
+}
 
 ul {
   display: flex;
@@ -13,6 +16,7 @@ li {
   margin: 50px 50px;
   list-style-type: none;
   justify-content: flex-start;
+  
 }
 
 
@@ -62,7 +66,7 @@ li {
 }
 
 .image-overlay button {
-  background-color: #ff6b6b;
+  background-color: #DAAA63;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -70,6 +74,9 @@ li {
   cursor: pointer;
 }
 
+.image-overlay button:hover {
+  background-color: #C2A792;
+}
 .book-details {
   padding: 20px;
   flex: 1;
@@ -117,22 +124,24 @@ display: flex;
   margin-top: 20px;
 }
 
-.update-button,
-.delete-button,
+.actions
+.update-button,.actions
+.delete-button,.actions
 .add-to-cart-button {
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #DAAA63;
+  color: whitesmoke;
   border: none;
-  padding: 8px 16px;
+  padding: 8px 8px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.update-button:hover,
-.delete-button:hover,
+.actions
+.update-button:hover,.actions
+.delete-button:hover,.actions
 .add-to-cart-button:hover {
-  background-color: #ff3e3e;
+  background-color: #C2A792;
 }
 
 
@@ -141,3 +150,54 @@ display: flex;
   text-align: center;
 }
 
+/* AddBook.css */
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+  font-family: Arial, sans-serif;
+   background-color: #F8F3ED;
+   /* 252525 */
+  color: #333;
+}
+
+/* Container for the form */
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title */
+.form-title {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.form{
+  margin-bottom: 100px;
+}
+
+/* Add more styles for form elements as needed */
+
+
+.button-addd{
+  
+  color: white;
+  padding: 10px;
+  background-color: #DAAA63;
+  width: fit-content;
+  margin: auto;
+  
+  border-radius: 5px;
+
+}

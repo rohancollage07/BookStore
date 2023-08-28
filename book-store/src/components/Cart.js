@@ -1,69 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
-import { useGlobalContext } from './context';
-import "./Main.css"
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useGlobalContext } from './context'
+import './Main.css'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Cart = () => {
-  const { cartItems, setCartItems } = useGlobalContext();
+  const { cartItems, setCartItems } = useGlobalContext()
+  const [totalAmount, setTotalAmount] = useState(0)
 
-  const [totalAmount, setTotalAmount] = useState(0);
-  
   useEffect(() => {
     // Calculate total amount whenever cartItems change
-    let total = 0;
-    cartItems.forEach(item => {
-      total += item.price * item.quantity; // Calculate total based on price and quantity
-    });
-    setTotalAmount(total);
+    let total = 0
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity // Calculate total based on price and quantity
+    })
+    setTotalAmount(total)
     console.log(cartItems)
-  }, [cartItems]);
+  }, [cartItems])
 
   const increaseQuantity = (itemId) => {
     // Find the item in cartItems
-    const cartItemValue = cartItems.find(item => item._id === itemId)?.quantity || 0;
+    const cartItemValue =
+      cartItems.find((item) => item._id === itemId)?.quantity || 0
     console.log(cartItemValue)
-    const updatedCart = cartItems.map(item =>
-      item._id === itemId
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
-    setCartItems(updatedCart);
-    
-  };
+    const updatedCart = cartItems.map((item) =>
+      item._id === itemId ? { ...item, quantity: item.quantity + 1 } : item,
+    )
+    setCartItems(updatedCart)
+  }
 
   const decreaseQuantity = (itemId) => {
     // Find the item in cartItems
-    const updatedCart = cartItems.map(item =>
+    const updatedCart = cartItems.map((item) =>
       item._id === itemId && item.quantity > 1
         ? { ...item, quantity: item.quantity - 1 }
-        : item
-    );
-    setCartItems(updatedCart);
-    
-  };
+        : item,
+    )
+    setCartItems(updatedCart)
+  }
 
-const removeItem = (itemId) => {
-  const itemToDelete = cartItems.find(item => item._id === itemId);
-  const updatedCart = cartItems.filter(item => item._id !== itemId);
-  setCartItems(updatedCart);
-  
-  // if (itemToDelete) {
-  //   alert(`${itemToDelete.name} Deleted Successfully !`);
-  // }
-if (itemToDelete) {
+  const removeItem = (itemId) => {
+    const itemToDelete = cartItems.find((item) => item._id === itemId)
+    const updatedCart = cartItems.filter((item) => item._id !== itemId)
+    setCartItems(updatedCart)
+
+    if (itemToDelete) {
       toast.success(`${itemToDelete.name} Deleted Successfully`, {
-        position: "top-center",
+        position: 'top-center',
         autoClose: 3000, // Notification will auto-close after 3 seconds
-      });
+      })
     }
-
-};
-
-
- 
-
+  }
 
   const shopButtonHandler = async () => {
     try {
@@ -76,23 +64,28 @@ if (itemToDelete) {
       // }));
 
       // Clear the cart or perform any other necessary actions
-      setCartItems([]);
+      setCartItems([])
     } catch (error) {
-      console.error('Error updating quantities:', error);
+      console.error('Error updating quantities:', error)
     }
-  };
+  }
 
   return (
-     <div className="cart-container">
+    <div className="cart-container">
       <h1 className="cart-header">Your Cart</h1>
-      {cartItems.map(item => (
+      {cartItems.map((item) => (
         <div key={item._id} className="cart-item">
           <img src={item.image} alt={item.name} />
           <div className="cart-item-details">
             <h3>{item.name}</h3>
             <p>Price: Rs {item.price}</p>
             <p>Available Quantity: {item.quantity}</p>
-           <button className="remove-button" onClick={() => removeItem(item._id)}>Remove</button>
+            <button
+              className="remove-button"
+              onClick={() => removeItem(item._id)}
+            >
+              Remove
+            </button>
           </div>
           <div className="action-buttons">
             <input
@@ -102,23 +95,35 @@ if (itemToDelete) {
               max={item.quantity_available}
               className="quantity-input"
               onChange={(e) => {
-                const updatedCart = cartItems.map(cartItem =>
+                const updatedCart = cartItems.map((cartItem) =>
                   cartItem._id === item._id
                     ? { ...cartItem, quantity: parseInt(e.target.value) }
-                    : cartItem
-                );
-                setCartItems(updatedCart);
+                    : cartItem,
+                )
+                setCartItems(updatedCart)
               }}
             />
-            <button className="action-button" onClick={() => increaseQuantity(item._id)}>+ADD</button>
-            <button className="action-button" onClick={() => decreaseQuantity(item._id)}>-MINUS</button>
+            <button
+              className="action-button"
+              onClick={() => increaseQuantity(item._id)}
+            >
+              +ADD
+            </button>
+            <button
+              className="action-button"
+              onClick={() => decreaseQuantity(item._id)}
+            >
+              -MINUS
+            </button>
           </div>
         </div>
       ))}
       <h2 className="total-amount">Total Amount: Rs {totalAmount}</h2>
-      <button className="shop-button" onClick={shopButtonHandler}>Shop</button>
+      <button className="shop-button" onClick={shopButtonHandler}>
+        Shop
+      </button>
     </div>
-  );
+  )
 }
 
-export default Cart;
+export default Cart

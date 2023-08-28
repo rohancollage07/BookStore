@@ -1,5 +1,8 @@
 /* Main container */
+
+
 .cart-container {
+  
   max-width: 800px;
   margin: auto;
   padding: 20px;
@@ -67,7 +70,7 @@
 }
 
 .action-button {
-  background-color: #ff6b6b;
+  background-color: #DAAA63;
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -78,7 +81,7 @@
 }
 
 .action-button:hover {
-  background-color: #ff3e3e;
+  background-color: #C2A792;
 }
 
 /* Total amount */
@@ -93,7 +96,7 @@
 .shop-button {
   display: block;
   margin: 20px auto;
-  background-color: #ff6b6b;
+  background-color: #DAAA63;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -103,7 +106,7 @@
 }
 
 .shop-button:hover {
-  background-color: #ff3e3e;
+  background-color: #C2A792;
 }
 
 .remove-button {
@@ -213,7 +216,7 @@
   margin-top: 20px;
    text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; 
+  -webkit-line-clamp: 10; 
   -webkit-box-orient: vertical;
   margin-top: 8px;
   overflow: auto;
@@ -266,7 +269,27 @@
   padding: 10px;
   background-color: #e74c3c;
   width: fit-content;
-  margin: auto;
+  margin-top: 30px;
   border-radius: 5px;
 }
 /* SingleBook Css Ends HERE */
+
+
+/* header */
+
+.Tabs_Header{
+/* background-color: #3498db; */
+margin: 70px;
+
+}
+.Tabs_Header
+.Tab_Individual{
+  color: white;
+  font-weight: 550;
+  background-color: #DAAA63;
+  justify-content: space-around;
+  margin: 0 70px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 20px;
+}

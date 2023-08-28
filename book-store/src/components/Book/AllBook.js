@@ -7,13 +7,24 @@ import axios from 'axios'
 import { useGlobalContext } from '../context'
 
 
-// Import the useCart hook
+// Import the useGlobalContext hook
 
 const AllBook = (props) => {
   const { addToCart, addtoSingleBook } = useGlobalContext() // Access the addToCart function from context
-
   const history = useNavigate()
-  
+
+    const {
+    _id,
+    name,
+    author,
+    description,
+    price,
+    image,
+    available,
+    quantity,
+    quantity_available
+  } = props.book
+
   const addToCartHandler = () => {
     // Logic to prepare the book item to be added to the cart
     const bookItem = {
@@ -32,7 +43,7 @@ const AllBook = (props) => {
     addToCart(bookItem)  // Add the book item to the cart
     console.log(bookItem)
     
-
+    // add notification 
     toast.success('Added to Cart ! Click to go Cart', {
       position: 'top-center',
       autoClose: 3000,
@@ -45,7 +56,7 @@ const AllBook = (props) => {
     });
   }
 
-  const AddtoSB = () =>{
+  const AddtoSingleBook = () =>{
     const bookItem = {
       _id,
       name,
@@ -61,19 +72,6 @@ const AllBook = (props) => {
     addtoSingleBook(bookItem)
     console.log(bookItem)
   }
-  
-
-  const {
-    _id,
-    name,
-    author,
-    description,
-    price,
-    image,
-    available,
-    quantity,
-    quantity_available
-  } = props.book
 
   
   const deleteHandler = async () => {
@@ -83,7 +81,7 @@ const AllBook = (props) => {
       .then(() => history('/'))
       .then(() => history('/books'))
 
-       toast.success('Book deleted successfully! Refresh.', {
+      toast.success('Book deleted successfully! Refresh.', {
       position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
@@ -99,7 +97,7 @@ const AllBook = (props) => {
   <Link to={`/books/${_id}/singlebook`} className="book-image">
     <img src={image} alt={name} />
     <div className="image-overlay">
-      <button onClick={AddtoSB}>View Details</button>
+      <button onClick={AddtoSingleBook}>View Details</button>
     </div>
   </Link>
   <div className="book-details">

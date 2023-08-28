@@ -11,27 +11,14 @@ const fetchHandler = async () => {
 const Home = () => {
   const [books, setBooks] = useState()
   const [query, setQuery] = useState('')
+
   useEffect(() => {
     fetchHandler().then((data) => setBooks(data.books))
   }, [])
 
-  // const search = (data) =>{
-  //   return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query)));
-  // };
-  // console.log(books);
   return (
     <>
       <div>
-        {/* <Box display="flex" flexDirection="column" alignItems="center">
-        <Button
-          LinkComponent={Link}
-          to="/books"
-          sx={{ marginTop: 15, background: "#2779a7" }}
-          variant="contained"
-        >
-          <Typography variant="h3">View All Books</Typography>
-        </Button>
-      </Box> */}
         <div className="searchBox">
           <Typography margin={10} color={'black'} variant="h3">
             Search Any Book{' '}
