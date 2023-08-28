@@ -47,7 +47,7 @@ const Cart = () => {
 
     if (itemToDelete) {
       toast.success(`${itemToDelete.name} Deleted Successfully`, {
-        position: 'top-center',
+        position: 'top-right',
         autoClose: 3000, // Notification will auto-close after 3 seconds
       })
     }
@@ -62,12 +62,20 @@ const Cart = () => {
       //     quantity: newQuantity
       //   });
       // }));
-
-      // Clear the cart or perform any other necessary actions
+      toast.success('Shopping Done Sucessfully !', {
+      position: 'top-right',
+      autoClose: 3000, // Notification will auto-close after 3 seconds
+      onClose : () =>{
       setCartItems([])
+      }
+    })
+      // Clear the cart or perform any other necessary actions
+      
     } catch (error) {
       console.error('Error updating quantities:', error)
     }
+
+
   }
 
   return (

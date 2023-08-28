@@ -42,7 +42,7 @@ const SingleBook = () => {
       // Add any toast notification or navigation logic here
     }
     toast.success('Added to Cart ! Click to go Cart', {
-      position: 'top-center',
+      position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,

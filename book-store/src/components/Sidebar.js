@@ -24,6 +24,9 @@ const Sidebar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
+        <ListItem component={Link} to="/">
+          <ListItemText primary="Home" />
+        </ListItem>
         <ListItem component={Link} to="/add">
           <ListItemText primary="Add Product" />
         </ListItem>
@@ -47,6 +50,9 @@ const Sidebar = () => {
         edge="start"
         color="inherit"
         aria-label="menu"
+        size='200px'
+        
+        sx={{margin: 'auto'}}
         onClick={toggleDrawer(true)}
       >
         <MenuIcon />

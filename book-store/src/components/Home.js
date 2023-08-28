@@ -1,4 +1,4 @@
-import { Typography, TextField } from '@mui/material'
+
 import React, { useEffect, useState } from 'react'
 
 import axios from 'axios'
@@ -19,17 +19,13 @@ const Home = () => {
   return (
     <>
       <div>
-        <div className="searchBox">
-          <Typography margin={10} color={'black'} variant="h3">
-            Search Any Book{' '}
-          </Typography>
-          <TextField
-            style={{ width: '500px' }}
-            id="outlined-basic"
-            label="Search Book"
-            variant="outlined"
-            onChange={(e) => setQuery(e.target.value)}
-          />
+        <div className='search-container'>
+          <input
+          placeholder='search Book'
+           type='text'
+           className="searchBox"
+          onChange={(e) => setQuery(e.target.value)}
+           />
         </div>
         <div>
           <ul>

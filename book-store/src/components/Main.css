@@ -252,7 +252,7 @@
 .add-to-cart-iconss {
   margin: 0 10px;
   font-size: 24px;
-  color: #3498db;
+  color: #daaa63;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
@@ -264,7 +264,7 @@
 .add-to-cart-buttonn {
   color: white;
   padding: 10px;
-  background-color: #e74c3c;
+  background-color: #daaa63;
   width: fit-content;
   margin-top: 30px;
   border-radius: 5px;
@@ -276,14 +276,19 @@
 .Tabs_Header {
   /* background-color: #3498db; */
   margin: 40px;
+  
 }
+
+.Tab_Individual{
+  justify-content: space-between;
+}
+
 .Tabs_Header .Tab_Individual {
-  color: black;
-  font-weight: 550;
+  color: #daaa63;
+  font-weight: 700;
   background-color: white;
-  justify-content: space-around;
-  margin: 0 80px;
-  padding: 10px;
+  margin: auto;
+  padding: 10px 30px;
   width: fit-content;
   border-radius: 20px;
 }
@@ -294,3 +299,10 @@
   color: white;
   background-color: #daaa63;
 }
+
+.Tab_Individual:hover {
+  color: white;
+  background-color: #dec59e;
+}
+
+/* Header ends here */

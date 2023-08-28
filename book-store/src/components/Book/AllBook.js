@@ -45,7 +45,7 @@ const AllBook = (props) => {
     
     // add notification 
     toast.success('Added to Cart ! Click to go Cart', {
-      position: 'top-center',
+      position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,

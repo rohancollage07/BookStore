@@ -28,15 +28,17 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className='jh'>
       {!isSmallScreen ? (
         <Tabs
+      
           className='Tabs_Header'
           centered
           // value={activeTab}
           onChange={handleTabChange}
         >
           <Tab
+          
             className={`Tab_Individual ${activeTab === 0 ? 'active' : ''}`}
             component={NavLink}
             to="/add"
