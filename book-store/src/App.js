@@ -12,7 +12,8 @@ import SingleBook from './components/Book/SingleBook'
 import Cart from './components/Cart'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import './components/Footer'
+import { Footer } from './components/Footer'
 function App() {
   return (
     <React.Fragment>
@@ -33,6 +34,9 @@ function App() {
       </main>
       {/* for notifuucation purpose */}
       <ToastContainer />  
+      <footer>
+        <Footer/>
+      </footer>
     </React.Fragment>
   )
 }
