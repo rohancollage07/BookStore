@@ -128,6 +128,9 @@ const Cart = () => {
         </div>
       ))}
       <h2 className="total-amount">Total Amount: Rs {totalAmount}</h2>
+      <div>
+        CODE HERE FOR CUStomer
+      </div>
       <button className="shop-button" onClick={shopButtonHandler}>
         Shop
       </button>

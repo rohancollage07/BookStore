@@ -26,11 +26,8 @@ const bookSchema = new Schema({
    quantity: {
         type : Number,
         required : true
-    },
-    quantity_available: { // Add the new field
-        type : Number,
-       
-        default: this.quantity} // Set its value to the quantity field
+    }
+  
 })
 
 
